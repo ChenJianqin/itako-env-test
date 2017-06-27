@@ -1,4 +1,4 @@
-docker-php-nginx-mysql-memcached
+docker-php5.6-mysql5.6-memcached1.4
 ====
 
 ## Overview
@@ -7,7 +7,7 @@ Docker Compose for PHP, nginx, PHP-FPM, MySQL, memcached development environment
 
 ## Description(Japanse)
 
-[【超簡単】Docker を使って1クリックでモダンな PHP 開発環境ができるようにする（PHP, MySQL, PHP-FPM, nginx, memcached）](http://koni.hateblo.jp/entry/2017/01/28/150522)
+[【超簡単】Docker を使って1クリックでモダンな PHP 開発環境ができるようにする（PHP, MySQL,memcached）]
 
 ## Install
 
@@ -18,7 +18,7 @@ Install Docker for Mac.
 Clone this repository.
 
 ```bash
-$ git clone git@github.com:koni/docker-php-nginx-mysql-memcached.git
+$ git clone git@github.com:ChenJianqin/itako-env-test.git
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ $ git clone git@github.com:koni/docker-php-nginx-mysql-memcached.git
 Up:
 
 ```bash
-$ cd docker-php-nginx-mysql-memcached/docker
+$ cd itako-env/local//docker
 $ docker-compose up
 ```
 
@@ -36,11 +36,5 @@ Stop:
 $ docker-compose stop
 ```
 
-## License
 
-This software is released under the MIT License, see [LICENSE](https://github.com/koni/docker-php-nginx-mysql-memcached/blob/master/LICENSE).
-
-## Author
-
-[koni](https://github.com/koni)
 
