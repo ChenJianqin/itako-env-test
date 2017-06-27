@@ -1,0 +1,43 @@
+version: '2'
+services:
+  memcached:
+    image: memcached:1.4
+    container_name: itako-memcached
+
+  data:
+    image: busybox
+    volumes:
+      - ./misc/data:/var/lib/mysql
+    container_name: itako-busybox
+
+  mysql:
+    image: mysql:5.6
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: mysql_database
+      MYSQL_USER: mysql_user
+      MYSQL_PASSWORD: mysql_pw
+    ports:
+      - "13306:3306"
+    volumes_from:
+      - data
+    volumes:
+      - ../application/initial.sql:/docker-entrypoint-initdb.d/initial.sql
+    container_name: itako-mysql
+
+
+  web:
+    build: ./apache-php
+    ports:
+      - 8081:80
+
+
+    links:
+      - mysql:itako-mysql
+    environment:
+      DATABASE_HOST: 'mysql'
+      DATABASE_NAME: 'mysql_database'
+      DATABASE_USER: 'mysql_user'
+      DATABASE_PASSWORD: 'mysql_pw'
+    hostname:local
+    container_name: itako-web
